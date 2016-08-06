@@ -1,0 +1,6 @@
+{
+  "name": "Guestbook Plugin",
+  "description": "",
+  "tags": [""],
+  "class": "GuestbookPlugin"
+}
