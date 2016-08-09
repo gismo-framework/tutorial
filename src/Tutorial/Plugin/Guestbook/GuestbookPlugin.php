@@ -27,7 +27,7 @@
                 });
 
                 $c->route->add("/guestbook", function (MainPage $p) use ($c) {
-                    $p->content = $c->api["guestbook.list"]();
+                    $p->content = new TemplateSection($c->api["guestbook.list"]());
                     $p->render()->out();
                 });
             }
