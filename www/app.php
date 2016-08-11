@@ -7,7 +7,7 @@
  */
 
 require __DIR__ . "/../vendor/autoload.php";
-
+require __DIR__ . "/../../gismo/vendor/autoload.php";
 
 ini_set("display_errors", 1);
 
@@ -23,5 +23,6 @@ $plugin->onContextInit($context);
 
 $request = \Gismo\Component\HttpFoundation\Request\RequestFactory::BuildFromEnv();
 $routeRequest = \Gismo\Component\Route\Type\RouterRequest::BuildFromRequest($request);
-print_r ($routeRequest);
+
+
 $context->route->dispatch($routeRequest);

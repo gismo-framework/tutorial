@@ -10,6 +10,8 @@
 
     use Gismo\Component\Application\Context;
     use Gismo\Component\Plugin\Plugin;
+    use Gismo\Component\Template\GoTemplate;
+    use Gismo\Component\Template\GoTemplateParser;
     use Gismo\Tutorial\Context\Frontend\FrontendContext;
 
     class HomepagePlugin implements Plugin {
@@ -18,7 +20,8 @@
         {
             if ($context instanceof FrontendContext) {
                 $context->route->add("/", function () {
-                    echo "Hallo Welt";
+                    $p = new GoTemplate();
+                    echo $p->renderHtmlFile(__DIR__ . "/tpl/homepage.tpl.html", ["title"=>"wurst"]);
                 });
             }
         }
