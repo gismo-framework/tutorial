@@ -15,7 +15,9 @@
         "php": ">=7.0",
         "gismo/php-foundation": "*",
         "gismo/di": "*",
-        "gismo/http-foundation": "*"
+        "gismo/http-foundation": "*",
+        "gismo/plugin": "*",
+        "gismo/application": "*"
     },
     "autoload": {
         "psr-4": {
