@@ -26,7 +26,13 @@
                     return $§§input;
                 });
 
-                $context->route->add("/", function (NavigationPartial $p, NavigationPartial $q) {
+
+                $context->api["some.namespace.class.method"]->beforeCall[0] = function () {
+
+                };
+
+
+                $context->route->add("/", function (NavigationPartial $p) {
 
                     $p = new GoTemplate();
                     echo $p->renderHtmlFile(__DIR__ . "/tpl/homepage.tpl.html", ["title"=>"wurst"]);

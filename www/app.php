@@ -11,6 +11,14 @@ require __DIR__ . "/../../gismo/vendor/autoload.php";
 
 ini_set("display_errors", 1);
 
+
+    $reader = new \Doctrine\Common\Annotations\AnnotationReader();
+
+    $ref = new ReflectionClass(\Gismo\Tutorial\Plugin\Homepage\HomepageActions::class);
+    $ret = $reader->getClassAnnotations($ref);
+    print_r ($ret);
+
+
 $context = new \Gismo\Tutorial\Context\Frontend\FrontendContext();
 
 $plugin = new \Gismo\Tutorial\Plugin\Homepage\HomepagePlugin();
