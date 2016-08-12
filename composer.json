@@ -12,10 +12,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "gismo/php-foundation": "*",
-        "gismo/di": "*",
-        "gismo/http-foundation": "*"
+        "php": ">=7.0"
     },
     "autoload": {
         "psr-4": {
