@@ -22,7 +22,7 @@
             if ($context instanceof FrontendContext) {
 
                 $context[NavigationPartial::class] = $context->filter(function (NavigationPartial $§§input) {
-                    echo "filtering1";
+
                     return $§§input;
                 });
 
