@@ -9,6 +9,7 @@
     namespace Gismo\Tutorial\Plugin\Homepage;
 
     use Gismo\Component\Application\Context;
+    use Gismo\Component\Partial\DefaultPartial\NavigationPartial;
     use Gismo\Component\Plugin\Plugin;
     use Gismo\Component\Template\GoTemplate;
     use Gismo\Component\Template\GoTemplateParser;
@@ -19,7 +20,14 @@
         public function onContextInit(Context $context)
         {
             if ($context instanceof FrontendContext) {
-                $context->route->add("/", function () {
+
+                $context[NavigationPartial::class] = $context->filter(function (NavigationPartial $§§input) {
+                    echo "filtering1";
+                    return $§§input;
+                });
+
+                $context->route->add("/", function (NavigationPartial $p, NavigationPartial $q) {
+
                     $p = new GoTemplate();
                     echo $p->renderHtmlFile(__DIR__ . "/tpl/homepage.tpl.html", ["title"=>"wurst"]);
                 });
