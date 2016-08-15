@@ -34,10 +34,10 @@ class ShoppingCartPlugin implements Plugin
             );
 
             $context
-                ->with(new ShoppingCartApi())
-                ->with(new BuyButtonCtrl())
-                ->with(new CartCtrl())
-                ->with(new CartPluginCtrl());
+                ->provide(new ShoppingCartApi())
+                ->provide(new BuyButtonCtrl())
+                ->provide(new CartCtrl())
+                ->provide(new CartPluginCtrl());
 
         }
     }

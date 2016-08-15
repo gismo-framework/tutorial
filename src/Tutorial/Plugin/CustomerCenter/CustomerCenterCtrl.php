@@ -34,7 +34,6 @@ class CustomerCenterCtrl
      */
     public function startAction(ShopContext $app) {
 
-
         return $app["page.customerCenter.mainPage"](["content" => $app["page.customerCenter.mainPage.overview"]()]);
     }
 
