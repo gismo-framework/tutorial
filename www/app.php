@@ -6,31 +6,19 @@
  * Time: 23:31
  */
 
+namespace App;
+
+use Gismo\Component\Config\ConfigLoader;
+
 require __DIR__ . "/../vendor/autoload.php";
 require __DIR__ . "/../../gismo/vendor/autoload.php";
 
+
+
 ini_set("display_errors", 1);
 
+ConfigLoader::FromFile("/etc/app.ini", ConfigLoader::PRODUCTION, $config = new AppConfig());
+$request = \Gismo\Component\HttpFoundation\Request\RequestFactory::BuildFromEnv($config);
 
-    $reader = new \Doctrine\Common\Annotations\AnnotationReader();
-
-    $ref = new ReflectionClass(\Gismo\Tutorial\Plugin\Homepage\HomepageActions::class);
-    $ret = $reader->getClassAnnotations($ref);
-    print_r ($ret);
-
-
-$context = new \Gismo\Tutorial\Context\Frontend\FrontendContext();
-
-$plugin = new \Gismo\Tutorial\Plugin\Homepage\HomepagePlugin();
-$plugin->onContextInit($context);
-
-
-$plugin = new \Gismo\Tutorial\Plugin\Guestbook\GuestbookPlugin();
-$plugin->onContextInit($context);
-
-
-$request = \Gismo\Component\HttpFoundation\Request\RequestFactory::BuildFromEnv();
-$routeRequest = \Gismo\Component\Route\Type\RouterRequest::BuildFromRequest($request);
-
-
-$context->route->dispatch($routeRequest);
+$app = new \Gismo\Tutorial\App\TutorialApp();
+$app->run($request);
